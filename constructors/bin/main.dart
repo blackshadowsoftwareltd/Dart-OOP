@@ -17,4 +17,6 @@ void main() {
   A.j = 0;
   print(A.j);
   print(A.k);
+  a.t ??= null;
+  print(a.t == null);
 }

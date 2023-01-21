@@ -1,4 +1,4 @@
-import 'package:constructors/constructors.dart';
+import 'package:constructors/main.dart';
 import 'package:test/test.dart';
 
 void main() {

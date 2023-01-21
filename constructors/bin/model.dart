@@ -7,6 +7,7 @@ class A {
 
   late int d;
   late final int e;
+  late final int? t;
   late final int f = 10;
 
   static int g = 6;
