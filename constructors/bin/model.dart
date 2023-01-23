@@ -1,39 +1,20 @@
 class A {
-  A(
-    this._private, {
-    required this.a,
-    required this.b,
-    required this.c,
-    // this.d,
-    required this.e,
-    required this.t,
-  }) : d = b // also initializable here
-  {
-    d = b;
-    A.h = b; // static variable can't be initialized above
-    A.j = b; // static variable can't be initialized above
-  }
+  // Named constructor
+  A(this.x, {required this.y, required this.z});
 
-  int? _private;
-  int? a;
-  int b = 1;
+  A.zero(this.x, {required this.y}) : z = 0; // Zero constructor
 
-  final int c;
+  A.fromJson(Map<String, dynamic> json) // From JSON constructor
+      : x = json['x'],
+        y = json['y'],
+        z = json['z'];
 
-  late int d;
-  late final int e;
-  late final int? t;
-  late final int f = 10;
-
-  static int g = 6;
-  static late int h;
-  static late int i = 5;
-  static late final int j;
-
-  static const int k = 10;
+  final int x;
+  final int y;
+  final int z;
 
   @override
   String toString() {
-    return 'A{_private: $_private, a: $a, b: $b, c: $c, d: $d, e: $e, t: $t, f: $f, g: $g, h: $h, i: $i, j: $j, k: $k}';
+    return 'A{x: $x, y: $y, z: $z}';
   }
 }
