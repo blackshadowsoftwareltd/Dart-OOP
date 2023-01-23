@@ -12,22 +12,21 @@ class A {
     int j,
     int k,
     int t,
-  ) {
-    this.a = a;
-    this.b = b;
-    // this.c = c;  'c' can't be used as a setter because it's final.
-    this.d = d;
-    this.e = e;
-    // this.f = f; 'f' can't be used as a setter because it's final.
-    A.g = g;
-    A.h = h;
-    A.i = i;
-    A.j = j;
-    // A.k = k; Constant variables can't be assigned a value.
-    this.t = t;
+    int p,
+  )   : this._private = p,
+        this.a = a,
+        this.b = b,
+        // this.c = c, final value already initialized
+        this.d = d,
+        this.e = e,
+        // this.f = f, final value already initialized
+
+        this.t = t {
+    A.h = h; // static variable can't be initialized above
+    A.j = j; // static variable can't be initialized above
   }
 
-  int? _primate;
+  int? _private;
   int? a;
   int? b = 1;
 
@@ -44,4 +43,9 @@ class A {
   static late final int j;
 
   static const int k = 10;
+
+  @override
+  String toString() {
+    return 'A{_private: $_private, a: $a, b: $b, c: $c, d: $d, e: $e, t: $t, f: $f, g: $g, h: $h, i: $i, j: $j, k: $k}';
+  }
 }
