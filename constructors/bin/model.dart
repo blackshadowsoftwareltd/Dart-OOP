@@ -1,13 +1,13 @@
 class A {
   A(
-    this._private,
-    this.a,
-    this.b,
-    this.c,
+    this._private, {
+    required this.a,
+    required this.b,
+    required this.c,
     // this.d,
-    this.e,
-    this.t,
-  ) : d = b // also initializable here
+    required this.e,
+    required this.t,
+  }) : d = b // also initializable here
   {
     d = b;
     A.h = b; // static variable can't be initialized above
