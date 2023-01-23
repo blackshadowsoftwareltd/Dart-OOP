@@ -1,22 +1,30 @@
 import 'model.dart' show A;
 
 void main() {
-  A a = A();
+  A a = A(
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+  );
   print(a.a);
   print(a.b);
   print(a.c);
-  a.d = 0;
   print(a.d);
-  a.e = 0;
   print(a.e);
   print(a.f);
   print(A.g);
-  A.h = 0;
   print(A.h);
   print(A.i);
-  A.j = 0;
   print(A.j);
   print(A.k);
-  a.t ??= null;
-  print(a.t == null);
+  print(a.t);
 }
