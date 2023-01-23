@@ -1,22 +1,31 @@
-class A {
-  A({
+import 'dart:math';
+
+class Point {
+  Point({
     required this.x,
     required this.y,
-    required this.z,
   }); // must need this constructor for zeroX & zeroY constructors
 
-  A.zero(this.x, {required this.y}) : z = 0; // Zero constructor
+  factory Point.randrom({required bool isPositive}) {
+    int minNegative = -99;
+    int maxNegative = -1;
+    int minPositive = 0;
+    int maxPositive = 99;
 
-  A.zeroX({required int x}) : this(x: x, y: 0, z: 0); // ZeroX constructor
-  A.zeroY({required int y}) : this(x: 0, y: y, z: 0); // ZeroY constructor
-  A.zeroZ({required int z}) : this(x: 0, y: 0, z: z); // ZeroY constructor
+    int randomNegative =
+        minNegative + Random().nextInt(maxNegative - minNegative);
+    int randomPositive =
+        minPositive + Random().nextInt(maxPositive - minPositive);
 
+    return isPositive
+        ? Point(x: randomPositive, y: randomPositive)
+        : Point(x: randomNegative, y: randomNegative);
+  }
   final int x;
   final int y;
-  final int z;
 
   @override
   String toString() {
-    return 'A{x: $x, y: $y, z: $z}';
+    return 'A{x: $x, y: $y}';
   }
 }
