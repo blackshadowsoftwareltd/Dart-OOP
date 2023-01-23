@@ -1,36 +1,24 @@
 class A {
   A(
-    int a,
-    int b,
-    int c,
-    int d,
-    int e,
-    int f,
-    int g,
-    int h,
-    int i,
-    int j,
-    int k,
-    int t,
-    int p,
-  )   : this._private = p,
-        this.a = a,
-        this.b = b,
-        // this.c = c, final value already initialized
-        this.d = d,
-        this.e = e,
-        // this.f = f, final value already initialized
-
-        this.t = t {
-    A.h = h; // static variable can't be initialized above
-    A.j = j; // static variable can't be initialized above
+    this._private,
+    this.a,
+    this.b,
+    this.c,
+    // this.d,
+    this.e,
+    this.t,
+  ) : d = b // also initializable here
+  {
+    d = b;
+    A.h = b; // static variable can't be initialized above
+    A.j = b; // static variable can't be initialized above
   }
 
   int? _private;
   int? a;
-  int? b = 1;
+  int b = 1;
 
-  final int c = 2;
+  final int c;
 
   late int d;
   late final int e;
