@@ -21,8 +21,15 @@ class Point {
         ? Point(x: randomPositive, y: randomPositive)
         : Point(x: randomNegative, y: randomNegative);
   }
+
+  factory Point.explanation() => origin;
+  factory Point.Explanation2() => Point.randrom(
+      isPositive:
+          true); // access another factory constructor using factory constructor
+
   final int x;
   final int y;
+  static Point origin = Point(x: 0, y: 0);
 
   @override
   String toString() {
