@@ -1,10 +1,22 @@
-class Singleton {
-  Singleton._primateConstructor();
-  static final _instance = Singleton._primateConstructor();
+import 'dart:math';
 
-  factory Singleton() => _instance;
-}
+class Point {
+  Point({
+    required this.x,
+    required this.y,
+  }); // must need this constructor for zeroX & zeroY constructors
 
-class ConstantClass {
-  const ConstantClass();
+  num distanceTo(Point p) {
+    final dx = x - p.x;
+    final dy = y - p.y;
+    return sqrt(pow(dx, 2) + pow(dy, 2));
+  }
+
+  final int x;
+  final int y;
+
+  @override
+  String toString() {
+    return 'A{x: $x, y: $y}';
+  }
 }
