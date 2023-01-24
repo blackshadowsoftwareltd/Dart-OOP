@@ -6,11 +6,8 @@ class Point {
     required this.y,
   }); // must need this constructor for zeroX & zeroY constructors
 
-  num distanceTo(Point p) {
-    final dx = x - p.x;
-    final dy = y - p.y;
-    return sqrt(pow(dx, 2) + pow(dy, 2));
-  }
+  Point operator +(Point p) => Point(x: x + p.x, y: y + p.y);
+  Point operator -(Point p) => Point(x: x - p.x, y: y - p.y);
 
   final int x;
   final int y;
