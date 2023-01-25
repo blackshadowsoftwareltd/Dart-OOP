@@ -1,9 +1,11 @@
 import 'model.dart' show Point;
 
 void main() {
-  final p = Point(x: 0, y: 0);
-  final n = Point(x: 1, y: 1);
+  final p = Point();
+  p.setX = 10;
+  p.setY = 20;
+  
 
-  print('p + n = ${p + n}');
-  print('p - n = ${p - n}');
+  print('p + n = ${p.sum}');
+  print('p - n = ${p.diff}');
 }

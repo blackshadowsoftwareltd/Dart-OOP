@@ -1,16 +1,12 @@
-import 'dart:math';
-
 class Point {
-  Point({
-    required this.x,
-    required this.y,
-  }); // must need this constructor for zeroX & zeroY constructors
+  set setX(int x) => this.x = x;
+  set setY(int y) => this.y = y;
 
-  Point operator +(Point p) => Point(x: x + p.x, y: y + p.y);
-  Point operator -(Point p) => Point(x: x - p.x, y: y - p.y);
+  int get sum => x + y;
+  int get diff => x - y;
 
-  final int x;
-  final int y;
+  late int x;
+  late int y;
 
   @override
   String toString() {
