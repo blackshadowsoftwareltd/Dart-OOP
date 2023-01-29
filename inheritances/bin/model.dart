@@ -6,7 +6,7 @@ class Animal {
   Animal.fromJson() : name = 'Jerry';
 
   void whoAmI() {
-    print('I am an animal');
+    print('I am an $name');
   }
 }
 
