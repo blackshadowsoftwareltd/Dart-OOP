@@ -1,3 +1,6 @@
+import 'model.dart';
+
 void main() {
-  print('object oriented programming');
+  final duck = Duck(name: 'Munchkin');
+  print('Duck name: ${duck.name}');
 }
