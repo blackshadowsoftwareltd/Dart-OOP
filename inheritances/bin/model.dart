@@ -16,4 +16,9 @@ class Bird extends Animal {
 
 class Duck extends Bird {
   Duck({required super.name});
+
+  @override
+  void whoAmI() => print('I am a duck');
+
+  void swim() => print('I am swimming');
 }
