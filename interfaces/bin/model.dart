@@ -16,7 +16,11 @@ class C {
   void methodForC() {}
 }
 
-class User implements A, B, C, UserRepository {
+class D {
+  void methodForD() {}
+}
+
+class User extends D implements A, B, C, UserRepository {
   User() {
     readFromLocal(_users);
   }
@@ -31,11 +35,12 @@ class User implements A, B, C, UserRepository {
 
   @override
   void methodForA() => print('method For A');
-
   @override
   void methodForB() => print('method For B');
   @override
   void methodForC() => print('method For C');
+  @override
+  void methodForD() => print('method For D');
 }
 
 const _users = ['user1', 'user2', 'user3', 'user4', 'user5'];
