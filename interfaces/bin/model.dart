@@ -2,13 +2,17 @@ abstract class UserRepository {
   List<String> users = [];
 
   void add(String user);
-  void addAll(List<String> users);
+  void readFromLocal(List<String> users);
   void remove(String user);
   void update(int i, String user);
   void find(String user);
 }
 
 class User implements UserRepository {
+  User() {
+    readFromLocal(_users);
+  }
+
   @override
   List<String> users = [];
 
@@ -34,7 +38,9 @@ class User implements UserRepository {
   }
 
   @override
-  void addAll(List<String> users) {
+  void readFromLocal(List<String> users) {
     this.users.addAll(users);
   }
 }
+
+const _users = ['user1', 'user2', 'user3', 'user4', 'user5'];
