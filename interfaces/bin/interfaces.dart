@@ -6,4 +6,5 @@ void main() {
   user.methodForA();
   user.methodForB();
   user.methodForC();
+  user.methodForD();
 }
