@@ -1,14 +1,22 @@
 abstract class UserRepository {
   List<String> users = [];
 
-  void add(String user);
   void readFromLocal(List<String> users);
-  void remove(String user);
-  void update(int i, String user);
-  void find(String user);
 }
 
-class User implements UserRepository {
+class A {
+  void methodForA() {}
+}
+
+class B {
+  void methodForB() {}
+}
+
+class C {
+  void methodForC() {}
+}
+
+class User implements A, B, C, UserRepository {
   User() {
     readFromLocal(_users);
   }
@@ -17,30 +25,17 @@ class User implements UserRepository {
   List<String> users = [];
 
   @override
-  void add(String user) {
-    users.add(user);
-    print('added $user');
-  }
-
-  @override
-  void find(String user) => print('found ${users.contains(user)}');
-
-  @override
-  void remove(String user) {
-    users.remove(user);
-    print('removed $user');
-  }
-
-  @override
-  void update(int i, String user) {
-    users[i] = user;
-    print('updated $user');
-  }
-
-  @override
   void readFromLocal(List<String> users) {
     this.users.addAll(users);
   }
+
+  @override
+  void methodForA() => print('method For A');
+
+  @override
+  void methodForB() => print('method For B');
+  @override
+  void methodForC() => print('method For C');
 }
 
 const _users = ['user1', 'user2', 'user3', 'user4', 'user5'];
