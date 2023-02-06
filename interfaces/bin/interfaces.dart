@@ -2,5 +2,6 @@ import 'model.dart' show Model;
 
 void main() {
   final model = Model();
-  model.doSomeThing();
+  model.doSomeThing1();
+  model.doSomeThing2();
 }
