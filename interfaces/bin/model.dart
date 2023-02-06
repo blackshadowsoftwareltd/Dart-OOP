@@ -1,10 +1,18 @@
-mixin MixinClass {
-  void doSomeThing() {}
+mixin Mixin1 {
+  void doSomeThing1() {}
+}
+mixin Mixin2 {
+  void doSomeThing2() {}
 }
 
-class Model with MixinClass {
+class Model with Mixin1, Mixin2 {
   @override
-  void doSomeThing() {
-    print('do some thing in mixin');
+  void doSomeThing1() {
+    print('do some thing in mixin 1');
+  }
+
+  @override
+  void doSomeThing2() {
+    print('do some thing in mixin 2');
   }
 }
