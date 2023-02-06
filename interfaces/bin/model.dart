@@ -1,8 +1,10 @@
-class UserRepo {
-  external void externalMethod(String s); // body less method.
+mixin MixinClass {
+  void doSomeThing() {}
 }
 
-class User extends UserRepo {
+class Model with MixinClass {
   @override
-  void externalMethod(String s) => print('External method called with $s');
+  void doSomeThing() {
+    print('do some thing in mixin');
+  }
 }

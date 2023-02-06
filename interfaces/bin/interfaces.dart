@@ -1,6 +1,6 @@
-import 'model.dart';
+import 'model.dart' show Model;
 
 void main() {
-  final user = User();
-  user.externalMethod('Hello World');
+  final model = Model();
+  model.doSomeThing();
 }
