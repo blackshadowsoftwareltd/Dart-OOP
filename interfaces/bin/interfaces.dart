@@ -1,7 +1,11 @@
-import 'model.dart' show Model;
+import 'model.dart' show D;
 
 void main() {
-  final model = Model();
-  model.doSomeThing1();
-  model.doSomeThing2();
+  final model = D();
+  model.a();
+  model.b();
+  model.c();
+//========
+  model.bToA();
+  model.cToA();
 }
