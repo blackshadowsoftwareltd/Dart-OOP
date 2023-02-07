@@ -2,7 +2,8 @@ class A {
   void a() => print('A');
 }
 
-mixin B {
+mixin B on A {
+  // on keyword will force extends class A
   void b() => print('B');
   void bToA() => b();
 }
