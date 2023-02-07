@@ -1,5 +1,6 @@
-import 'package:extensions/extensions.dart' as extensions;
+import 'strings.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${extensions.calculate()}!');
+void main() {
+  String x = 'Hello World';
+  print(x.removeSpaces());
 }
