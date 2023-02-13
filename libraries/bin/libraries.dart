@@ -1,5 +1,6 @@
-import 'package:libraries/libraries.dart' as libraries;
+import 'package:libraries/test.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${libraries.calculate()}!');
+void main() {
+  final a = A();
+  
 }
