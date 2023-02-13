@@ -1,3 +1,0 @@
-library result_lib;
-
-
