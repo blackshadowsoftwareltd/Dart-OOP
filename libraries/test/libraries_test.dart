@@ -1,4 +1,4 @@
-import 'package:extensions/extensions.dart';
+import 'package:libraries/libraries.dart';
 import 'package:test/test.dart';
 
 void main() {
