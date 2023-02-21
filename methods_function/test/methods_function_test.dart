@@ -1,4 +1,4 @@
-import 'package:streams/streams.dart';
+import 'package:methods_function/methods_function.dart';
 import 'package:test/test.dart';
 
 void main() {
