@@ -1,5 +1,11 @@
-import 'package:streams/streams.dart' as streams;
+import 'dart:async';
 
-void main(List<String> arguments) {
-  print('Hello world: ${streams.calculate()}!');
+void main() {
+  final StreamController streamController = StreamController();
+  Timer.periodic(const Duration(seconds: 1), (timer) {
+    streamController.add(timer.tick);
+  });
+  streamController.stream.listen((event) {
+    print(event);
+  });
 }
