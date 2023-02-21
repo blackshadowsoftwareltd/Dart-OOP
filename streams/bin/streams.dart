@@ -9,4 +9,9 @@ Stream<int> asyncGenerator() async* {
     await Future.delayed(const Duration(milliseconds: 500));
     yield i;
   }
+  yield* negativeStream;
 }
+
+final negativeStream =
+    Stream<int>.periodic(const Duration(milliseconds: 500), (int i) => -i)
+        .take(5);
