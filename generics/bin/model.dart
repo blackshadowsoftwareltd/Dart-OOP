@@ -25,8 +25,12 @@ class Cart<E> {
   String toString() => 'Cart{id: $id, name: $name, qty: $qty}';
 }
 
-final users = [...List.generate(10, (i) => User('$i', 'John', 'example@e.io'))];
-final products = [
-  ...List.generate(10, (i) => Product('$i', 'Product $i', 10.0))
+final usersList = [
+  ...List.generate(3, (i) => User('$i', 'John', 'example@e.io'))
 ];
-final carts = [...List.generate(10, (i) => Cart('$i', 'Cart ${i + i}', 10))];
+final productsList = [
+  ...List.generate(3, (i) => Product('$i', 'Product $i', 10.0))
+];
+final cartsList = [
+  ...List.generate(3, (i) => Cart('$i', 'Cart ${i + i}', 2 * i))
+];
