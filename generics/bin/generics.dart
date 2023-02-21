@@ -1,23 +1,25 @@
-import 'model.dart' show Cart, Product, User, carts, products, users;
+import 'model.dart'
+    show Cart, Product, User, cartsList, productsList, usersList;
 
 void main() {
-  final user = getInfoById<User>(users, '1');
-  print(user.toString());
-
-  final product = getInfoById<Product>(products, '5');
-  print(product.toString());
-
-  final cart = getInfoById<Cart>(carts, '8');
-  print(cart.toString());
+  final users = Reusable<User>();
+  users.addAll(usersList);
+  print(users.list);
+  final products = Reusable<Product>();
+  products.addAll(productsList);
+  print(products.list);
+  final carts = Reusable<Cart>();
+  carts.addAll(cartsList);
+  print(carts.list);
 }
 
-///? Generic method. Returns an object of type E?.
-E? getInfoById<E>(List<E> list, String s) {
-  E? e;
-  for (E x in list) {
-    if (x is User && (x.id) == s) return e = x;
-    if (x is Product && (x.id) == s) return e = x;
-    if (x is Cart && (x.id) == s) return e = x;
-  }
-  return e;
+class Reusable<T> {
+  final List<T> _list = [];
+  List<T> get list => _list;
+  void add(T item) => _list.add(item);
+  void addAll(List<T> items) => _list.addAll(items);
+  void remove(T item) => _list.remove(item);
+  void removeAt(int index) => _list.removeAt(index);
+  void removeAll() => _list.clear();
+  int length() => _list.length;
 }
