@@ -1,18 +1,17 @@
 void main() {
-  ///? Method without parameter
-  print(add());
-  print(minus());
-  print(multiply());
-  print(divide());
+  ///?  do normal operation
+  print(doOparation(10.0, 5.0, (a, b) => a + b));
 
-  ///? Method with parameter
-  print(add(20, 10));
-  print(minus(20, 10));
-  print(multiply(20, 10));
-  print(divide(20, 10));
+  ///?  do complex operation
+  final x = doComplexOparation(10.0, 5.0, (sum) => sum + 50);
+  print('Do something with the sum of (a+b) = : $x');
 }
 
-int add([int a = 10, int b = 5]) => a + b;
-int minus([int a = 10, int b = 5]) => a - b;
-int multiply([int a = 10, int b = 5]) => a * b;
-int divide([int a = 10, int b = 5]) => a ~/ b;
+///?  do normal operation
+double doOparation(double a, double b, Function operation) => operation(a, b);
+
+///?  do complex operation
+double doComplexOparation(
+        double a, double b, double Function(double) operation) =>
+    operation(add(100, 50));
+double add([double a = 10, double b = 5]) => a + b;
