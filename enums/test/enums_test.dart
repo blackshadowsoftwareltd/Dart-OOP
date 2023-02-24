@@ -1,4 +1,4 @@
-import 'package:methods_function/methods_function.dart';
+import 'package:enums/enums.dart';
 import 'package:test/test.dart';
 
 void main() {
