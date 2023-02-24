@@ -1,12 +1,13 @@
 void main() {
-  ///?  do complex operation
-  final x = doComplexOparation(10.0, 5.0, operation: (sum) => sum + 50);
-  print('Do something with the sum of (a+b) = : $x');
+  ///? Method not work
+  print(doSomething(10, 20)); //! print >> Closure: () => int
+
+  ///? Method
+  final result = doSomething(20, 30);
+  print(result());
+
+  ///? Another way
+  print(doSomething(410, 60)());
 }
 
-///?  do complex operation
-T doComplexOparation<T extends num>(T a, T b,
-        {required T Function(T) operation}) =>
-    operation(add(a, b));
-
-T add<T extends num>(T a, T b) => a + b as T;
+int Function() doSomething(int lhs, int rhs) => () => lhs + rhs;
