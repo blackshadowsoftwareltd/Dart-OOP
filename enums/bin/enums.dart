@@ -1,27 +1,21 @@
 void main() {
-  try {
-    Animal.cat
-      ..jump()
-      ..run();
-    Animal.dog
-      ..jump()
-      ..run();
-    Animal.hen
-      ..jump()
-      ..run();
-  } catch (e) {
-    print(e.toString());
-  }
+
+  ///? Sorting the enum values by comparing the price
+  print(TeslaCars.values);
+  print(TeslaCars.values.toList()..sort());
 }
 
-extension Jump on Animal {
-  void jump() => print('$this is Jumping...');
-}
+enum TeslaCars implements Comparable<TeslaCars> {
+  modelA(price: 1254155222),
+  modelB(price: 54854548518),
+  modelC(price: 7845154521),
+  modelD(price: 2548445151),
+  modelE(price: 1284515425);
 
-enum Animal {
-  cat,
-  dog,
-  hen;
+  final double price;
+  const TeslaCars({required this.price});
 
-  void run() => print('Running...');
+  ///? Overriding the compareTo method from the Comparable interface
+  @override
+  int compareTo(TeslaCars other) => price.compareTo(other.price);
 }
