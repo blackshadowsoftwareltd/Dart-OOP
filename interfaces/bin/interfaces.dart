@@ -1,30 +1,26 @@
 void main() {
-  var person = Person();
-  person.run(25);
-  person.jump(5);
+  var person = Person(firstName: 'John', lastName: 'Doe');
+  print(person.fullName);
+  print(getFullName(person)); // FullName Argument received Person instance
 }
 
-///* class implements mixin
-class Person with MaxSpeed, CanRun, CanWalk {
+String getFullName(FullName obj) => obj.fullName;
+
+mixin FirstName {
+  String get firstName;
+}
+mixin LastName {
+  String get lastName;
+}
+mixin FullName on FirstName, LastName {
+  String get fullName => '$firstName $lastName';
+}
+
+class Person with FirstName, LastName, FullName {
   @override
-  double speed; // speed must be override from MaxSpeed mixin
+  final String firstName;
 
-  Person() : speed = 00;
-}
-
-///* mixin
-mixin MaxSpeed {
-  abstract double speed;
-}
-mixin CanRun on MaxSpeed {
-  void run(double speed) {
-    this.speed = speed;
-    print('$runtimeType is running with speed $speed');
-  }
-}
-mixin CanWalk on MaxSpeed {
-  void jump(double speed) {
-    this.speed = speed;
-    print('$runtimeType is walking with speed $speed');
-  }
+  @override
+  final String lastName;
+  Person({required this.firstName, required this.lastName});
 }
