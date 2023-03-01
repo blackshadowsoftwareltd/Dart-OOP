@@ -1,13 +1,14 @@
 void main() {
-  const names = ['John', 'Doe', 'Jack', 'Jill'];
-  final multipliedList = names * 3;
-  print(multipliedList);
+  print(sum(5, 10));
 }
 
-extension Times<T> on Iterable<T> {
-  Iterable<T> operator *(int times) sync* {
-    for (int i = 0; i < times; i++) {
-      yield* this;
-    }
+int sum(int? a, int? b) => a + b;
+
+extension NullableAdd<T extends num> on T? {
+  T operator +(T? other) {
+    if (this == null && other == null) return 0 as T;
+    if (this == null) return other as T;
+    if (other == null) return this as T;
+    return this! + other as T;
   }
 }
