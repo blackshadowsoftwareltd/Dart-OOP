@@ -1,24 +1,13 @@
 void main() {
-  final father = FamilyMember(name: 'Dat');
-  final mother = FamilyMember(name: 'Mom');
-  final family = father + mother; // + operator comes from extension
-  print(family);
+  const names = ['John', 'Doe', 'Jack', 'Jill'];
+  final multipliedList = names * 3;
+  print(multipliedList);
 }
 
-class FamilyMember {
-  final String name;
-  const FamilyMember({required this.name});
-  @override
-  String toString() => 'FamilyMember (name: $name)';
-}
-
-class Family {
-  final List<FamilyMember> members;
-  const Family({required this.members});
-  @override
-  String toString() => 'Family (members: $members)';
-}
-
-extension ToFamily on FamilyMember {
-  Family operator +(FamilyMember other) => Family(members: [this, other]);
+extension Times<T> on Iterable<T> {
+  Iterable<T> operator *(int times) sync* {
+    for (int i = 0; i < times; i++) {
+      yield* this;
+    }
+  }
 }
