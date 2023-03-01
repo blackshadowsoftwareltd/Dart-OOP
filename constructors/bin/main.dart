@@ -1,48 +1,24 @@
-import 'dart:mirrors';
-
 void main() {
-  final person = Person(name: 'Person Name', age: 20);
-  print(person);
-  final house = House(address: 'Dhake', rooms: 5);
-  print(house);
+  final father = FamilyMember(name: 'Dat');
+  final mother = FamilyMember(name: 'Mom');
+  final family = father + mother; // + operator comes from extension
+  print(family);
 }
 
-class Person with HasDiscription {
+class FamilyMember {
   final String name;
-  final int age;
-  Person({required this.name, required this.age});
-}
-
-class House with HasDiscription {
-  final String address;
-  final int rooms;
-  const House({required this.address, required this.rooms});
-}
-
-extension AsKey on VariableMirror {
-  String get asKey {
-    final fieldName = MirrorSystem.getName(simpleName);
-    final fieldType = MirrorSystem.getName(type.simpleName);
-
-    return '$fieldName : (<T> $fieldType)';
-  }
-}
-
-mixin HasDiscription {
+  const FamilyMember({required this.name});
   @override
-  String toString() {
-    final reflection = reflect(this);
+  String toString() => 'FamilyMember (name: $name)';
+}
 
-    final thisType = MirrorSystem.getName(reflection.type.simpleName);
+class Family {
+  final List<FamilyMember> members;
+  const Family({required this.members});
+  @override
+  String toString() => 'Family (members: $members)';
+}
 
-    final variables =
-        reflection.type.declarations.values.whereType<VariableMirror>();
-
-    final properties = <String, dynamic>{
-      for (final x in variables)
-        x.asKey: reflection.getField(x.simpleName).reflectee,
-    }.toString();
-
-    return '$thisType : $properties';
-  }
+extension ToFamily on FamilyMember {
+  Family operator +(FamilyMember other) => Family(members: [this, other]);
 }
