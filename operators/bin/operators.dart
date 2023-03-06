@@ -1,5 +1,6 @@
 void main() {
   print([1, 2, 3, 4, 5] - [3, 5]);
+  print(['a', 'b', 'c', 'd', 'e'] - ['c', 'e']);
 }
 
 extension Remove<T> on Iterable<T> {
