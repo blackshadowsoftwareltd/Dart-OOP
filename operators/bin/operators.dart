@@ -1,25 +1,35 @@
+import 'model_extension.dart'
+    show Person, Pet, PersonExt, FamilyExt, PetExt, IsIdentical;
+
 void main() {
-  ///! the age key is overwritten by the second map using + operator
-  final mapAdd = {'name': 'John', 'age': 30} + {'age': 40, 'city': 'New York'};
-  print(mapAdd);
+  final father = Person(name: 'father');
+  final mother = Person(name: 'mother');
+  final son = Person(name: 'son');
+  final daughter = Person(name: 'daughter');
 
-  ///! the city is matched and removed from the map but the age is not matched so it is not removed
-  final mapRemove = mapAdd - {'age': 20, 'city': 'New York'};
-  print(mapRemove);
+  final dog = Pet(name: 'dog');
+  final cat = Pet(name: 'cat');
+  final bird = Pet(name: 'bird');
 
-  ///? the * operator is used to repeat the map 3 times
-  print(mapRemove * 3);
-}
+  final family = father + mother;
+  print('father + mother: $family');
 
-extension MapOperations<K, V> on Map<K, V> {
-  ///! the + operator is used to merge two maps
-  Map<K, V> operator +(Map<K, V> other) => {...this, ...other};
+  final familyWithPets = family & cat & dog;
+  print('family & cat & dog: $familyWithPets');
 
-  ///! the - operator is used to remove the matching keys and values from the map
-  Map<K, V> operator -(Map<K, V> other) => {...this}..removeWhere(
-      (key, value) => other.containsKey(key) && other[key] == value);
+  final familyWithChildren = familyWithPets + son + daughter;
+  print('familyWithPets + son: $familyWithChildren');
 
-  Iterable<Map<K, V>> operator *(int times) sync* {
-    for (int i = 0; i < times; i++) yield this;
-  }
+  final familyWithBird = familyWithChildren & bird;
+  print('familyWithChildren & bird: $familyWithBird');
+
+  ///*=======================================================================
+
+  final children = son + daughter;
+  final pets = cat + dog & bird;
+  final mergedFamily = children ^ pets;
+  print('Children ^ Pets: $mergedFamily');
+
+  print(
+      'Is familyWithBird identical to mergedFamily: ${familyWithBird | mergedFamily}');
 }
