@@ -32,4 +32,19 @@ extension StringExt on String {
   String addDotCa() => '$this.ca';
   String addDotBd() => '$this.bd';
   String addDotIO() => '$this.io';
+
+  bool get isEmail => RegExp(r'^\w+@\w+\.\w+$').hasMatch(this);
+  bool get isUrl => RegExp(r'^https?://\w+\.\w+$').hasMatch(this);
+  bool get isHttps => RegExp(r'^https://\w+\.\w+$').hasMatch(this);
+  bool get isHttp => RegExp(r'^http://\w+\.\w+$').hasMatch(this);
+  bool get isUpperCase => this == toUpperCase();
+  bool get isLowerCase => this == toLowerCase();
+  bool get isAlphabet => RegExp(r'^[a-zA-Z]+$').hasMatch(this);
+  bool get containSpace => contains(' ');
+  bool get containHyphen => contains('-');
+  bool get containUnderscore => contains('_');
+  bool get containSpaceHyphenUnderscore =>
+      RegExp(r'[-_\s]').hasMatch(this);
+  bool get containNumber => RegExp(r'\d').hasMatch(this);
+    
 }

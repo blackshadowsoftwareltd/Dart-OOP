@@ -1,5 +1,7 @@
 extension ItarableExt<T extends num> on Iterable<T> {
   T get sum => reduce((a, b) => a + b as T);
+  bool get containDuplicateValue => toSet().length != length;
+  bool get containZero=> any((e) => e == 0);
 }
 
 extension ListExt<T extends num> on List<T> {

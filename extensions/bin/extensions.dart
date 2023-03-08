@@ -1,6 +1,5 @@
-import 'strings.dart';
+import 'list.dart';
 
 void main() {
-  String x = 'Hello World';
-  print(x.removeSpaces());
+   
 }
