@@ -1,5 +1,1 @@
-import 'list.dart';
-
-void main() {
-   
-}
+void main() {}

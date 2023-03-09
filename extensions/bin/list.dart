@@ -1,7 +1,9 @@
+import 'dart:math';
+
 extension ItarableExt<T extends num> on Iterable<T> {
   T get sum => reduce((a, b) => a + b as T);
   bool get containDuplicateValue => toSet().length != length;
-  bool get containZero=> any((e) => e == 0);
+  bool get containZero => any((e) => e == 0);
 }
 
 extension ListExt<T extends num> on List<T> {
@@ -34,4 +36,13 @@ extension ListExt<T extends num> on List<T> {
           // if (v >= min && v <= max) v
           if ((v > min && v < max) || v == min || v == max) v
       ];
+  List<int> addRandomInt({required int total, required int max}) {
+    final r = Random();
+    return [...List.generate(total, (_) => r.nextInt(max))];
+  }
+
+  List<double> addRandomDouble({required int total, required int max}) {
+    final r = Random();
+    return [...List.generate(total, (_) => r.nextDouble() * max)];
+  }
 }
