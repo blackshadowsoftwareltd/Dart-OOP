@@ -43,8 +43,7 @@ extension StringExt on String {
   bool get containSpace => contains(' ');
   bool get containHyphen => contains('-');
   bool get containUnderscore => contains('_');
-  bool get containSpaceHyphenUnderscore =>
-      RegExp(r'[-_\s]').hasMatch(this);
+  bool get containSpaceHyphenUnderscore => RegExp(r'[-_\s]').hasMatch(this);
   bool get containNumber => RegExp(r'\d').hasMatch(this);
-    
+  bool isSpaceOnly() => trim().isEmpty;
 }
