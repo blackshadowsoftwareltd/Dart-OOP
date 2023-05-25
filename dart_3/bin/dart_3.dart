@@ -1,5 +1,12 @@
-import 'package:dart_3/dart_3.dart' as dart_3;
+void main() {
+  final foo = Foo(one: 'One', two: 2);
+  final Foo(:one, :two) = foo;
+  print('one $one, two $two');
+}
 
-void main(List<String> arguments) {
-  print('Hello world: ${dart_3.calculate()}!');
+class Foo {
+  final String one;
+  final int two;
+
+  Foo({required this.one, required this.two});
 }
