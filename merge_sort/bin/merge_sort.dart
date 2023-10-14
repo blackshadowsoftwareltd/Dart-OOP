@@ -1,61 +1,44 @@
-void main(){
-  final list=[3,5,7,4,6,1,8,9,2];
+void main() {
+  List<int> list = [3, 5, 7, 4, 6, 1, 8, 9, 2];
   print(list);
-  mergeSort(list);
+  devide(list, 0, list.length - 1);
   print(list);
 }
-void mergeSort(List<int> list) {
-  if (list.length <= 1) {
-    return;
-  }
 
-  // Divide the list into two halves.
-  final mid = list.length ~/ 2;
-  final left = list.sublist(0, mid);
-  final right = list.sublist(mid);
+void devide(List<int> list, int f, int l) {
+  if (f >= l) return;
+  int mid = (f + (l - f) ~/ 2);
 
-  // Recursively sort the two halves.
-  mergeSort(left);
-  mergeSort(right);
-
-  // Merge the two sorted halves.
-  merge(list, left, right);
+  devide(list, f, mid);
+  devide(list, mid + 1, l);
+  conquer(list, f, mid, l);
 }
 
-void merge(List<int> list, List<int> left, List<int> right) {
-  // Create a temporary list to store the merged results.
-  final merged = [];
+void conquer(List<int> list, int f, int mid, int l) {
+  List<int> merged = [];
+  int index1 = f, index2 = mid + 1;
 
-  // Initialize two pointers to iterate over the left and right subarrays.
-  var i = 0;
-  var j = 0;
-
-  // While both pointers are less than their respective subarray lengths,
-  // compare the elements at the current positions and add the smaller element
-  // to the merged list.
-  while (i < left.length && j < right.length) {
-    if (left[i] <= right[j]) {
-      merged.add(left[i]);
-      i++;
+  while (index1 <= mid && index2 <= l) {
+    if (list[index1] <= list[index2]) {
+      merged.add(list[index1]);
+      index1++;
     } else {
-      merged.add(right[j]);
-      j++;
+      merged.add(list[index2]);
+      index2++;
     }
   }
 
-  // Add any remaining elements from the left and right subarrays to the merged list.
-  while (i < left.length) {
-    merged.add(left[i]);
-    i++;
+  while (index1 <= mid) {
+    merged.add(list[index1]);
+    index1++;
   }
 
-  while (j < right.length) {
-    merged.add(right[j]);
-    j++;
+  while (index2 <= l) {
+    merged.add(list[index2]);
+    index2++;
   }
 
-  // Copy the merged list back to the original list.
-  for (var i = 0; i < merged.length; i++) {
-    list[i] = merged[i];
+  for (int i = f, j = 0; j < merged.length; i++, j++) {
+    list[i] = merged[j];
   }
 }
